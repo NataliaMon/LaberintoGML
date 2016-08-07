@@ -99,30 +99,44 @@ if (!place_meeting(x,y+velocidad,objWall))&amp;&amp;(!place_meeting(x,y+velocida
             <kind>1</kind>
             <string>/// Key Management
 
-/* Se utilizará place_meeting para verificar la colisión con alguna llave luego se
+/* 1)Se utilizará place_meeting para verificar la colisión con alguna llave luego se
     destruye la llave  y se pone a true la variable respectiva en el objeto principal
-    de llave.
+    de llave. 2) se crea la variable keyColorInstance, para asegurar que el objPlayer
+    deba colisionar con cada objKeyColor. 3)Para que el objDoorColor se destruya
+    cuando se tengan todas las intancias verificar con intance_exists.
     */
     
-if (place_meeting(x,y, objKeyRed))
+var keyRedInstance = instance_place(x ,y , objKeyRed);    
+if (keyRedInstance != noone)
     {
-    with (objKeyRed){instance_destroy();}
-    KeyRed = true;
+    with (keyRedInstance){instance_destroy();}
+    if(!instance_exists(objKeyRed))
+    {
+        KeyRed = true;
+    }
     audio_play_sound(sndDiamond, 10, false);
     }
     
-if (place_meeting(x,y, objKeyBlack))
+var keyBlackInstance = instance_place(x ,y , objKeyBlack);    
+if (keyBlackInstance != noone)
     {
-    with (objKeyBlack){instance_destroy();}
-    KeyBlack = true;
+    with (keyBlackInstance){instance_destroy();}
+    if(!instance_exists(objKeyBlack))
+    {
+        KeyBlack = true;
+    }
     audio_play_sound(sndDiamond, 10, false);
     }
 
-if (place_meeting(x,y, objKeyGold))
+var keyGoldInstance = instance_place(x ,y , objKeyGold);
+if (keyGoldInstance != noone)
     {
-    with(objKeyGold){instance_destroy();}
-    KeyGold = true;
-    audio_play_sound(sndDiamond, 10, false);
+    with (KeyGoldIntance){instance_destroy();}
+    if(!instance_exists(objKeyGold))
+    {
+        KeyGold = true;
+    }
+    audio_play_sound(sndDiamond, 10, false)
     }
     
 
