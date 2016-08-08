@@ -128,15 +128,15 @@ if (keyBlackInstance != noone)
     audio_play_sound(sndDiamond, 10, false);
     }
 
-var keyGoldInstance = instance_place(x ,y , objKeyGold);
+var keyGoldInstance = instance_place(x ,y , objKeyGold);    
 if (keyGoldInstance != noone)
     {
-    with (KeyGoldIntance){instance_destroy();}
+    with (keyGoldInstance){instance_destroy();}
     if(!instance_exists(objKeyGold))
     {
         KeyGold = true;
     }
-    audio_play_sound(sndDiamond, 10, false)
+    audio_play_sound(sndDiamond, 10, false);
     }
     
 
@@ -220,6 +220,10 @@ if (Diamond &amp;&amp; GemPurple &amp;&amp; GemBlue &amp;&amp; GemGreen)
         {
         with(objGoal){instance_destroy();}
         audio_play_sound(sndGoal, 10, false);
+        if(!instance_exists(Diamond || GemPurple || GemBlue || GemGreen))
+        {
+        Goal = true;
+        }
         if (room_exists(room_next(room)))
         {room_goto_next();}
         else
@@ -343,6 +347,7 @@ if (room_exists(room_next(room)))
     {room_goto_next();}
     else
     {room_goto(Start);}
+    
     
 
 </string>

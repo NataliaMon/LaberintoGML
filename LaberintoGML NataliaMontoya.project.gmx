@@ -70,10 +70,11 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\Start</room>
-    <room>rooms\Level4</room>
     <room>rooms\Level1</room>
     <room>rooms\Level2</room>
     <room>rooms\Level3</room>
+    <room>rooms\Level4</room>
+    <room>rooms\Level5</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
